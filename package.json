@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/RisingSunLight42/Art-Fight-Discord-bot/issues"
   },
-  "homepage": "https://github.com/RisingSunLight42/Art-Fight-Discord-bot#readme"
+  "homepage": "https://github.com/RisingSunLight42/Art-Fight-Discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
 }
