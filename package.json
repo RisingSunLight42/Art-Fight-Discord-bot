@@ -1,0 +1,20 @@
+{
+  "name": "art-fight-discord-bot",
+  "version": "1.0.0",
+  "description": "Un bot Discord qui permettra de gérer un art fight entre deux équipes !",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RisingSunLight42/Art-Fight-Discord-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RisingSunLight42/Art-Fight-Discord-bot/issues"
+  },
+  "homepage": "https://github.com/RisingSunLight42/Art-Fight-Discord-bot#readme"
+}
