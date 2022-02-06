@@ -3,7 +3,7 @@ const { deploy } = require('../deploy-commands.js'); // Importe la fonction pour
 module.exports = {
 	name: 'ready',
 	once: true,
-	execute(client) {
+	async execute(client) {
 		console.log(`Je suis allumée !`);
         deploy();
         await client.user.setPresence({ activities: [{name: "Je suis en préparation !"}], status: "dnd"});
