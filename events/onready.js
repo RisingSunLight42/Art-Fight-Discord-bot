@@ -6,5 +6,6 @@ module.exports = {
 	execute(client) {
 		console.log(`Je suis allumée !`);
         deploy();
+        await client.user.setPresence({ activities: [{name: "Je suis en préparation !"}], status: "dnd"});
 	},
 };
