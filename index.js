@@ -1,5 +1,5 @@
 const fs = require('fs');                                        // Permet de lire des fichiers avec Node.js
-const { Client, Collection, Intents, Interaction } = require('discord.js');   // Import des classes nécessaires pour le bot
+const { Client, Collection, Intents } = require('discord.js');   // Import des classes nécessaires pour le bot
 const { token } = require('./config.json');                      // Recherche des configurations dans le fichier de config
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS] });  // Nouvel objet client, avec les intents de guild
