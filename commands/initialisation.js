@@ -43,7 +43,9 @@ module.exports = {
                         "mois_depart" : date.getUTCMonth(),
                         "annee_depart" : date.getUTCFullYear()};
         const dict_info_string = JSON.stringify(dict_info);
-        fs.writeFile(`../infos_artfight/${interaction.guild.id}.json`, dict_info_string); // Écriture des infos dans un fichier JSON
+        fs.writeFile(`../infos_artfight/${interaction.guild.id}.json`, dict_info_string, function(err, result) { // Écriture des infos dans un fichier JSON
+            if(err) console.log('Il y a une erreur', err);
+        });
         await interaction.reply({content: "hewo", ephemeral: true});
     }
 }
