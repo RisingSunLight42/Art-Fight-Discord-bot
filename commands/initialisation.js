@@ -22,5 +22,7 @@ module.exports = {
      */
     async execute(interaction) {
         // Commande
+        const nom_equipe1 = interaction.options.getString("equipe1");
+        const nom_equipe2 = interaction.options.getString("equipe2");
     }
 }
