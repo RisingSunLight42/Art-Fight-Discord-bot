@@ -35,13 +35,15 @@ module.exports = {
                                                                                         deny: [Permissions.FLAGS.CONNECT],},],
                                                                                     reason: "Art Fight"});
         const date = new Date();
-        const dict = {"salon_equipe_1" : salon_equipe1.id,  // Création du dictionnaire pour le fichier JSON qui stockera les infos
-                    "salon_equipe_2" : salon_equipe2.id,
-                    "nom_equipe_1" : nom_equipe1,
-                    "nom_equipe_2" : nom_equipe2,
-                    "jour_depart" : date.getUTCDate(),
-                    "mois_depart" : date.getUTCMonth(),
-                    "annee_depart" : date.getUTCFullYear()};
+        const dict_info = {"salon_equipe_1" : salon_equipe1.id,  // Création du dictionnaire pour le fichier JSON qui stockera les infos
+                        "salon_equipe_2" : salon_equipe2.id,
+                        "nom_equipe_1" : nom_equipe1,
+                        "nom_equipe_2" : nom_equipe2,
+                        "jour_depart" : date.getUTCDate(),
+                        "mois_depart" : date.getUTCMonth(),
+                        "annee_depart" : date.getUTCFullYear()};
+        const dict_info_string = JSON.stringify(dict_info);
+        fs.writeFile(`../infos_artfight/${interaction.guild.id}.json`, dict_info_string); // Écriture des infos dans un fichier JSON
         await interaction.reply({content: "hewo", ephemeral: true});
     }
 }
