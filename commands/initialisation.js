@@ -34,6 +34,14 @@ module.exports = {
                                                                                         id: interaction.guild.roles.everyone.id,
                                                                                         deny: [Permissions.FLAGS.CONNECT],},],
                                                                                     reason: "Art Fight"});
+        const date = new Date();
+        const dict = {"salon_equipe_1" : salon_equipe1.id,  // Création du dictionnaire pour le fichier JSON qui stockera les infos
+                    "salon_equipe_2" : salon_equipe2.id,
+                    "nom_equipe_1" : nom_equipe1,
+                    "nom_equipe_2" : nom_equipe2,
+                    "jour_depart" : date.getUTCDate(),
+                    "mois_depart" : date.getUTCMonth(),
+                    "annee_depart" : date.getUTCFullYear()};
         await interaction.reply({content: "hewo", ephemeral: true});
     }
 }
