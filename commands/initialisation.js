@@ -7,7 +7,15 @@ const fs = require('fs'); // Permet d'écrire des fichiers avec Node.js
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('initalisation')
-        .setDescription('Initialise l\'Art Fight sur le serveur.'),
+        .setDescription('Initialise l\'Art Fight sur le serveur.')
+        .addStringOption(option =>
+            option.setName("Équipe 1")
+                .setDescription("Nom de l'équipe 1 (veillez à ne pas donner un nom trop long !)")
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName("Équipe 2")
+                .setDescription("Nom de l'équipe 2 (veillez à ne pas donner un nom trop long !)")
+                .setRequired(true)),
     /**
      * 
      * @param {CommandInteraction} interaction 
