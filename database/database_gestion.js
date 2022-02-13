@@ -8,3 +8,18 @@ const sequelize = new Sequelize({
 	// SQLite only
 	storage: './database/db.sqlite',
 });
+
+const table_artfight_info = sequelize.define("artfight", {
+    id_guild: {
+        type: Sequelize.SMALLINT,
+        unique: true,
+        primaryKey: true,
+    },
+    nom_equipe1: Sequelize.STRING,
+    id_salon_equipe1: Sequelize.STRING,
+    points_equipe1: Sequelize.INTEGER,
+    nom_equipe2: Sequelize.STRING,
+    id_salon_equipe2: Sequelize.STRING,
+    points_equipe2: Sequelize.INTEGER,
+    date: Sequelize.DATE
+});
