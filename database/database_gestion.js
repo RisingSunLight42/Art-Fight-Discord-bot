@@ -23,3 +23,5 @@ const table_artfight_info = sequelize.define("artfight", {
     points_equipe2: Sequelize.INTEGER,
     date: Sequelize.DATE
 });
+
+module.exports = { table_artfight_info };
