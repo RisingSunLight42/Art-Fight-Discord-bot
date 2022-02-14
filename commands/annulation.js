@@ -17,7 +17,12 @@ module.exports = {
         const infos_artfight = await table_artfight_info.findOne({
             where: {
                 id_guild
-            }
+            },
+            attributes: [
+                "id_salon_equipe1",
+                "id_salon_equipe2"
+            ],
+            raw: true
         });
         if (!infos_artfight) return await interaction.reply({
             content: "Il n'y a pas d'Artfight en cours sur le serveur !",
