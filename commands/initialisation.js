@@ -56,7 +56,6 @@ module.exports = {
             points_equipe2: 0,
             date
         });
-        
         await interaction.reply({content: "L'ArtFight a bien été lancé !", ephemeral: true});
     }
 }
