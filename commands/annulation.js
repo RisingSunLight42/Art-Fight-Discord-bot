@@ -13,6 +13,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     async execute(interaction) {
+        //* Vérifie si un artfight existe
         const id_guild = interaction.guildId;
         const infos_artfight = await table_artfight_info.findOne({
             where: {
@@ -28,6 +29,8 @@ module.exports = {
             content: "Il n'y a pas d'Artfight en cours sur le serveur !",
             ephemeral: true
         });
+
+        //* Récupère les salons s'ils existent
         let salon_equipe1 = "variable_vide";
         let salon_equipe2 = "variable_vide";
         try {
@@ -40,6 +43,8 @@ module.exports = {
         } catch (error) {
             console.log("Un salon n'existe plus.");
         };
+
+        //* Supprime les salons s'ils existent
         if (!salon_equipe1 === "variable_vide") { 
             await salon_equipe1.delete("Annulation de l'Artfight");
         };
