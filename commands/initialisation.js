@@ -23,12 +23,12 @@ module.exports = {
         // Commande
         const nom_equipe1 = interaction.options.getString("equipe1");
         const nom_equipe2 = interaction.options.getString("equipe2");
-        const salon_equipe1 = await interaction.guild.channels.create(`${nom_equipe1} 0`, {type: "GUILD_VOICE",
+        const salon_equipe1 = await interaction.guild.channels.create(`${nom_equipe1} : 0`, {type: "GUILD_VOICE",
                                                                                     permissionOverwrites: [{
                                                                                         id: interaction.guild.roles.everyone.id,
                                                                                         deny: [Permissions.FLAGS.CONNECT],},],
                                                                                    reason: "Art Fight"});
-        const salon_equipe2 = await interaction.guild.channels.create(`${nom_equipe2} 0`, {type: "GUILD_VOICE",
+        const salon_equipe2 = await interaction.guild.channels.create(`${nom_equipe2} : 0`, {type: "GUILD_VOICE",
                                                                                     permissionOverwrites: [{
                                                                                         id: interaction.guild.roles.everyone.id,
                                                                                         deny: [Permissions.FLAGS.CONNECT],},],
