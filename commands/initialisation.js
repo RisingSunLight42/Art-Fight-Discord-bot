@@ -21,6 +21,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     async execute(interaction) {
+        //* Vérifie qu'un artfight n'a pas déjà été lancé sur le serveur
         const id_guild = interaction.guildId;
         if (await table_artfight_info.findOne({
             where: {
@@ -30,6 +31,8 @@ module.exports = {
             content: "Un artfight a déjà été lancé sur le serveur !",
             ephemeral: true
         });
+
+        //* Crée l'artfight
         const nom_equipe1 = interaction.options.getString("equipe1");
         const nom_equipe2 = interaction.options.getString("equipe2");
         const salon_equipe1 = await interaction.guild.channels.create(`${nom_equipe1} : 0`, {type: "GUILD_VOICE",
@@ -43,13 +46,16 @@ module.exports = {
                                                                                         deny: [Permissions.FLAGS.CONNECT],},],
                                                                                     reason: "Art Fight"});
         const date = new Date();
-        const dict_info = {"salon_equipe_1" : salon_equipe1.id,  // Création du dictionnaire pour le fichier JSON qui stockera les infos
-                        "salon_equipe_2" : salon_equipe2.id,
-                        "nom_equipe_1" : nom_equipe1,
-                        "nom_equipe_2" : nom_equipe2,
-                        "jour_depart" : date.getUTCDate(),
-                        "mois_depart" : date.getUTCMonth(),
-                        "annee_depart" : date.getUTCFullYear()};
-        await interaction.reply({content: "hewo", ephemeral: true});
+        await table_artfight_info.create({
+            id_guild,
+            nom_equipe1,
+            id_salon_equipe1: salon_equipe1.id,
+            points_equipe1: 0,
+            nom_equipe2,
+            id_salon_equipe2: salon_equipe2.id,
+            points_equipe2: 0,
+            date
+        })
+        await interaction.reply({content: "L'ArtFight a bien été lancé !", ephemeral: true});
     }
 }
