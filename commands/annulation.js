@@ -13,6 +13,14 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     async execute(interaction) {
-        //Commande
+        const id_guild = interaction.guildId;
+        if (!await table_artfight_info.findOne({
+            where: {
+                id_guild
+            }
+        })) return await interaction.reply({
+            content: "Il n'y a pas d'Artfight en cours sur le serveur !",
+            ephemeral: true
+        });
     }
 }
