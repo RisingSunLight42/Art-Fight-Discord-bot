@@ -56,7 +56,7 @@ module.exports = {
             points_equipe2: 0,
             date
         });
-        console.log(await table_artfight_info.findOne({where: { id_guild}}));
+        
         await interaction.reply({content: "L'ArtFight a bien été lancé !", ephemeral: true});
     }
 }
