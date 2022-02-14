@@ -1,6 +1,7 @@
 // Importe le nécessaire pour réaliser la commande
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { CommandInteraction, Permissions } = require('discord.js');
+const { table_artfight_info } = require('../database/database_gestion.js');
 
 // Crée la commande en faisant une nouvelle commande Slash
 module.exports = {
@@ -20,7 +21,15 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     async execute(interaction) {
-        // Commande
+        const id_guild = interaction.guildId;
+        if (await table_artfight_info.findOne({
+            where: {
+                id_guild
+            }
+        })) return await interaction.reply({
+            content: "Un artfight a déjà été lancé sur le serveur !",
+            ephemeral: true
+        });
         const nom_equipe1 = interaction.options.getString("equipe1");
         const nom_equipe2 = interaction.options.getString("equipe2");
         const salon_equipe1 = await interaction.guild.channels.create(`${nom_equipe1} : 0`, {type: "GUILD_VOICE",
