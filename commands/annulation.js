@@ -45,11 +45,10 @@ module.exports = {
         };
 
         //* Supprime les salons s'ils existent
-        if (!salon_equipe1 === "variable_vide") { 
+        if (!(salon_equipe1 === "variable_vide")) { 
             await salon_equipe1.delete("Annulation de l'Artfight");
         };
-        console.log(!salon_equipe2 === "variable_vide");
-        if (!salon_equipe2 === "variable_vide") {
+        if (!(salon_equipe2 === "variable_vide")) {
             await salon_equipe2.delete("Annulation de l'Artfight");
         };
         await interaction.reply({ content: "hewo", ephemeral: true});
