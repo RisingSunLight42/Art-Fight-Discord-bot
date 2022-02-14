@@ -19,7 +19,7 @@ const menuFiles = fs.readdirSync('./menus').filter(file => file.endsWith('.js'))
 
 for (const file of menuFiles) {                  // Parcours la liste des fichiers
     const menu = require(`./menus/${file}`);     // Récupère le fichier dans la variable menu
-    client.menus.set(menu.name, menu);        // L'ajoute comme menu, avec pour nom le nom du fichier et comme attribut "menu"
+    client.menus.set(menu.name, menu);           // L'ajoute comme menu, avec pour nom le nom du fichier et comme attribut "menu"
 }
 
 // Récupère les events
