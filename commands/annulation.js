@@ -28,5 +28,15 @@ module.exports = {
             content: "Il n'y a pas d'Artfight en cours sur le serveur !",
             ephemeral: true
         });
+        try {
+            const salon_equipe1 = await interaction.guild.channels.fetch(infos_artfight.id_salon_equipe1);
+        } catch (error) {
+            console.log("Un salon n'existe plus.");
+        };
+        try {
+            const salon_equipe2 = await interaction.guild.channels.fetch(infos_artfight.id_salon_equipe2);
+        } catch (error) {
+            console.log("Un salon n'existe plus.");
+        };
     }
 }
