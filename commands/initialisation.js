@@ -1,7 +1,6 @@
 // Importe le nécessaire pour réaliser la commande
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { CommandInteraction, Permissions } = require('discord.js');
-const fs = require('fs'); // Permet d'écrire des fichiers avec Node.js
 
 // Crée la commande en faisant une nouvelle commande Slash
 module.exports = {
@@ -42,10 +41,6 @@ module.exports = {
                         "jour_depart" : date.getUTCDate(),
                         "mois_depart" : date.getUTCMonth(),
                         "annee_depart" : date.getUTCFullYear()};
-        const dict_info_string = JSON.stringify(dict_info);
-        fs.writeFile(`../infos_artfight/${interaction.guild.id}.json`, dict_info_string, function(err, result) { // Écriture des infos dans un fichier JSON
-            if(err) console.log('Il y a une erreur', err);
-        });
         await interaction.reply({content: "hewo", ephemeral: true});
     }
 }
