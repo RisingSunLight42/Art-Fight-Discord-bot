@@ -13,6 +13,15 @@ for (const file of commandFiles) {                      // Parcours la liste des
     client.commands.set(command.data.name, command);    // L'ajoute comme commande, avec pour nom le nom du fichier et comme attribut "command"
 }
 
+// Récupère les menus
+client.menus = new Collection();
+const menuFiles = fs.readdirSync('./menus').filter(file => file.endsWith('.js'));  // Récupère les fichiers .js des menus se situant dans le dossier menus
+
+for (const file of menuFiles) {                  // Parcours la liste des fichiers
+    const menu = require(`./menus/${file}`);     // Récupère le fichier dans la variable menu
+    client.menus.set(menu.name, menu);        // L'ajoute comme menu, avec pour nom le nom du fichier et comme attribut "menu"
+}
+
 // Récupère les events
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
