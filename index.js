@@ -11,7 +11,7 @@ const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('
 for (const file of commandFiles) {                      // Parcours la liste des fichiers
     const command = require(`./commands/${file}`);      // Récupère le fichier dans la variable command
     client.commands.set(command.data.name, command);    // L'ajoute comme commande, avec pour nom le nom du fichier et comme attribut "command"
-}
+};
 
 // Récupère les menus
 client.menus = new Collection();
@@ -20,7 +20,7 @@ const menuFiles = fs.readdirSync('./menus').filter(file => file.endsWith('.js'))
 for (const file of menuFiles) {                  // Parcours la liste des fichiers
     const menu = require(`./menus/${file}`);     // Récupère le fichier dans la variable menu
     client.menus.set(menu.name, menu);           // L'ajoute comme menu, avec pour nom le nom du fichier et comme attribut "menu"
-}
+};
 
 // Récupère les events
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
@@ -32,6 +32,6 @@ for (const file of eventFiles) { // Parcours la liste des fichiers
     } else {
         client.on(event.name, (...args) => event.execute(...args));
     };
-}
+};
 
 client.login(token); // Lance le bot
