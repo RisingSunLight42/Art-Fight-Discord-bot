@@ -51,6 +51,9 @@ module.exports = {
         if (!(salon_equipe2 === "variable_vide")) {
             await salon_equipe2.delete("Annulation de l'Artfight");
         };
-        await interaction.reply({ content: "hewo", ephemeral: true});
+
+        //* Suppression de l'enregistrement dans la base de données
+        await table_artfight_info.destroy({ where: { id_guild }}); 
+        await interaction.reply({ content: "L'Artfight a bien été annulé !", ephemeral: true});
     }
 }
