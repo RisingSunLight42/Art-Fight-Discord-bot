@@ -28,8 +28,8 @@ module.exports = {
             content: "Il n'y a pas d'Artfight en cours sur le serveur !",
             ephemeral: true
         });
-        let salon_equipe1
-        let salon_equipe2
+        let salon_equipe1 = "variable_vide";
+        let salon_equipe2 = "variable_vide";
         try {
             salon_equipe1 = await interaction.guild.channels.fetch(infos_artfight.id_salon_equipe1);
         } catch (error) {
@@ -40,5 +40,13 @@ module.exports = {
         } catch (error) {
             console.log("Un salon n'existe plus.");
         };
+        if (!salon_equipe1 === "variable_vide") { 
+            await salon_equipe1.delete("Annulation de l'Artfight");
+        };
+        console.log(!salon_equipe2 === "variable_vide");
+        if (!salon_equipe2 === "variable_vide") {
+            await salon_equipe2.delete("Annulation de l'Artfight");
+        };
+        await interaction.reply({ content: "hewo", ephemeral: true});
     }
 }
