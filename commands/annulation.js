@@ -14,11 +14,12 @@ module.exports = {
      */
     async execute(interaction) {
         const id_guild = interaction.guildId;
-        if (!await table_artfight_info.findOne({
+        const infos_artfight = await table_artfight_info.findOne({
             where: {
                 id_guild
             }
-        })) return await interaction.reply({
+        });
+        if (!infos_artfight) return await interaction.reply({
             content: "Il n'y a pas d'Artfight en cours sur le serveur !",
             ephemeral: true
         });
