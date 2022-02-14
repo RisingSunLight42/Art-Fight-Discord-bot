@@ -32,9 +32,12 @@ module.exports = {
             ephemeral: true
         });
 
-        //* Crée l'artfight
+        //* Récupère les noms des équipes
         const nom_equipe1 = interaction.options.getString("equipe1");
         const nom_equipe2 = interaction.options.getString("equipe2");
+        if (nom_equipe1 === nom_equipe2) return await interaction.reply({ content: "Tu as donné des noms d'équipes identiques !", ephemeral: true});
+
+        //* Crée l'artfight
         const salon_equipe1 = await interaction.guild.channels.create(`${nom_equipe1} : 0`, {type: "GUILD_VOICE",
                                                                                     permissionOverwrites: [{
                                                                                         id: interaction.guild.roles.everyone.id,
