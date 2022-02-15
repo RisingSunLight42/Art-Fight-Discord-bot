@@ -39,12 +39,12 @@ module.exports = {
 
         //* Vérification si le membre a déjà rejoins une équipe
         if (
-            !(await table_user.findOne({
+            await table_user.findOne({
                 where: {
                     id_guild,
                     id_user: interaction.user.id,
                 },
-            }))
+            })
         )
             return await interaction.reply({
                 content: "Tu as déjà rejoins une équipe !",
