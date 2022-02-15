@@ -5,6 +5,7 @@ const {
     MessageActionRow,
     MessageSelectMenu,
 } = require("discord.js");
+const { table_artfight_info } = require("../database/database_gestion.js");
 
 // Crée la commande en faisant une nouvelle commande Slash
 module.exports = {
