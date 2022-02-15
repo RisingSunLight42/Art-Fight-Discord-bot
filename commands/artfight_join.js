@@ -5,7 +5,10 @@ const {
     MessageActionRow,
     MessageSelectMenu,
 } = require("discord.js");
-const { table_artfight_info } = require("../database/database_gestion.js");
+const {
+    table_artfight_info,
+    table_user,
+} = require("../database/database_gestion.js");
 
 // Crée la commande en faisant une nouvelle commande Slash
 module.exports = {
@@ -33,6 +36,22 @@ module.exports = {
                 content: "Il n'y a pas d'Artfight en cours sur ce serveur !",
                 ephemeral: true,
             });
+
+        //* Vérification si le membre a déjà rejoins une équipe
+        if (
+            !(await table_user.findOne({
+                where: {
+                    id_guild,
+                    id_user: interaction.user.id,
+                },
+            }))
+        )
+            return await interaction.reply({
+                content: "Tu as déjà rejoins une équipe !",
+                ephemeral: true,
+            });
+
+        //* Création du nouveau menu pour rejoindre une équipe
         const row = new MessageActionRow().addComponents(
             new MessageSelectMenu()
                 .setCustomId("choix_equipe")
