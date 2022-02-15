@@ -33,5 +33,22 @@ module.exports = {
                 content: "Il n'y a pas d'Artfight en cours sur ce serveur !",
                 ephemeral: true,
             });
+        const row = new MessageActionRow().addComponents(
+            new MessageSelectMenu()
+                .setCustomId("choix_equipe")
+                .setPlaceholder("Tu n'as choisi aucune équipe.")
+                .addOptions([
+                    {
+                        label: `${info_artfight.nom_equipe1}`,
+                        description: "Tu veux rejoindre la première équipe ?",
+                        value: "nom_equipe1",
+                    },
+                    {
+                        label: `${info_artfight.nom_equipe2}`,
+                        description: "Tu veux rejoindre la seconde équipe ?",
+                        value: "nom_equipe2",
+                    },
+                ])
+        );
     },
 };
