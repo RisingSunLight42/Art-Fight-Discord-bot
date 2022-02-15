@@ -51,6 +51,7 @@ module.exports = {
                 ])
         );
         await interaction.reply({
+            content: "Choisi ton équipe !",
             ephemeral: true,
             components: [row],
         });
