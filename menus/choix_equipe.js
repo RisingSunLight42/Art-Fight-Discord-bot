@@ -9,5 +9,9 @@ module.exports = {
             nom_equipe: interaction.values[0],
             points: 0,
         });
+        await interaction.reply({
+            content: `Tu as bien rejoins l'équipe ${interaction.values[0]} !`,
+            ephemeral: true,
+        });
     },
 };
