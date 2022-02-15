@@ -41,12 +41,12 @@ module.exports = {
                     {
                         label: `${info_artfight.nom_equipe1}`,
                         description: "Tu veux rejoindre la première équipe ?",
-                        value: "nom_equipe1",
+                        value: `${info_artfight.nom_equipe1}`,
                     },
                     {
                         label: `${info_artfight.nom_equipe2}`,
                         description: "Tu veux rejoindre la seconde équipe ?",
-                        value: "nom_equipe2",
+                        value: `${info_artfight.nom_equipe1}`,
                     },
                 ])
         );
