@@ -65,7 +65,7 @@ module.exports = {
                     {
                         label: `${info_artfight.nom_equipe2}`,
                         description: "Tu veux rejoindre la seconde équipe ?",
-                        value: `${info_artfight.nom_equipe1}`,
+                        value: `${info_artfight.nom_equipe2}`,
                     },
                 ])
         );
