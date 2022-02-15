@@ -37,4 +37,4 @@ const table_user = sequelize.define("user", {
     points: Sequelize.SMALLINT,
 });
 
-module.exports = { table_artfight_info };
+module.exports = { table_artfight_info, table_user };
