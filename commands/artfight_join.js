@@ -17,6 +17,21 @@ module.exports = {
      * @param {CommandInteraction} interaction
      */
     async execute(interaction) {
-        //Commande
+        //* Récupération des infos
+        const id_guild = interaction.guildId;
+        const info_artfight = await table_artfight_info.findOne({
+            where: {
+                id_guild,
+            },
+            attributes: ["id_guild", "nom_equipe1", "nom_equipe2"],
+            raw: true,
+        });
+
+        //* Vérification si un artfight est en cours
+        if (!info_artfight)
+            return await interaction.reply({
+                content: "Il n'y a pas d'Artfight en cours sur ce serveur !",
+                ephemeral: true,
+            });
     },
 };
