@@ -6,7 +6,7 @@ const { Client, CommandInteraction } = require("discord.js"); // Import des clas
  * @param {CommandInteraction} interaction
  */
 const handleMenu = async (client, interaction) => {
-    const menu = client.menus.get(interaction.customID); // Récupère le menu exécuté
+    const menu = client.menus.get(interaction.customId); // Récupère le menu exécuté
 
     if (!menu) return; // Il ne fait rien si la commande est vide
 
