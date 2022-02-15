@@ -50,5 +50,9 @@ module.exports = {
                     },
                 ])
         );
+        await interaction.reply({
+            ephemeral: true,
+            components: [row],
+        });
     },
 };
