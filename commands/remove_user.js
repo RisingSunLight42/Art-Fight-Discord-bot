@@ -42,5 +42,10 @@ module.exports = {
                 content: "Ce membre n'a pas rejoint d'équipe !",
                 ephemeral: true,
             });
+        await table_user.destroy({ where: { id_guild, id_user } });
+        await interaction.reply({
+            content: `<@${id_user}> a bien été retiré de son équipe !`,
+            ephemeral: true,
+        });
     },
 };
