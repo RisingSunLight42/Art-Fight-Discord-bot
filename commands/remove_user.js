@@ -36,5 +36,11 @@ module.exports = {
                 content: "Aucun Artfight n'est lancé sur le serveur !",
                 ephemeral: true,
             });
+        const id_user = interaction.options.getUser("membre").id;
+        if (!(await table_user.findOne({ where: { id_guild, id_user } })))
+            return await interaction.reply({
+                content: "Ce membre n'a pas rejoint d'équipe !",
+                ephemeral: true,
+            });
     },
 };
