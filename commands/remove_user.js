@@ -10,7 +10,9 @@ const {
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("retrait_equipe")
-        .setDescription("Commande pour retirer un membre de son équipe.")
+        .setDescription(
+            "Commande pour retirer un membre de son équipe. (exclusif aux admins)"
+        )
         .addUserOption((option) =>
             option
                 .setName("membre")
@@ -22,6 +24,11 @@ module.exports = {
      * @param {CommandInteraction} interaction
      */
     async execute(interaction) {
-        // Commande
+        if (!interaction.memberPermissions.has("ADMINISTRATOR"))
+            return await interaction.reply({
+                content:
+                    "Tu n'as pas les droits requis pour effectuer une telle action !",
+                ephemeral: true,
+            });
     },
 };
