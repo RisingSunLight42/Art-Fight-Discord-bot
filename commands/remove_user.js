@@ -30,5 +30,11 @@ module.exports = {
                     "Tu n'as pas les droits requis pour effectuer une telle action !",
                 ephemeral: true,
             });
+        const id_guild = interaction.guildId;
+        if (!(await table_artfight_info.findOne({ where: { id_guild } })))
+            return await interaction.reply({
+                content: "Aucun Artfight n'est lancé sur le serveur !",
+                ephemeral: true,
+            });
     },
 };
