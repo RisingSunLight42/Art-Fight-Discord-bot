@@ -59,6 +59,7 @@ module.exports = {
 
         //* Suppression de l'enregistrement dans la base de données
         await table_artfight_info.destroy({ where: { id_guild } });
+        await table_user.destroy({ where: { id_guild } });
         await interaction.reply({
             content: "L'Artfight a bien été annulé !",
             ephemeral: true,
