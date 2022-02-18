@@ -46,5 +46,10 @@ module.exports = {
                     },
                 ])
         );
+        await interaction.reply({
+            content: "Donne-moi tes points !",
+            ephemeral: true,
+            components: [row],
+        });
     },
 };
