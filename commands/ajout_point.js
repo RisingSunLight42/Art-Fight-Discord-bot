@@ -25,8 +25,24 @@ module.exports = {
                 .addOptions([
                     {
                         label: "Tête",
-                        description: "Correspond au visage sans les épaules",
+                        description: "Correspond au visage sans les épaules.",
                         value: "10",
+                    },
+                    {
+                        label: "Bust",
+                        description: "Correspond au visage avec les épaules.",
+                        value: "15",
+                    },
+                    {
+                        label: "Halfbody",
+                        description:
+                            "Correspond au corps s'arrêtant jusqu'à la taille.",
+                        value: "20",
+                    },
+                    {
+                        label: "Fullbody",
+                        description: "Correspond au corps entier.",
+                        value: "25",
                     },
                 ])
         );
