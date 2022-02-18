@@ -18,6 +18,17 @@ module.exports = {
      * @param {CommandInteraction} interaction
      */
     async execute(interaction) {
-        // Commande
+        const row = new MessageActionRow.addComponents(
+            new MessageSelectMenu()
+                .setCustomId("question_points_1")
+                .setPlaceholder("Tu n'as pas spécifié de partie du corps.")
+                .addOptions([
+                    {
+                        label: "Tête",
+                        description: "Correspond au visage sans les épaules",
+                        value: "10",
+                    },
+                ])
+        );
     },
 };
