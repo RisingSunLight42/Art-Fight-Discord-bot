@@ -18,7 +18,7 @@ module.exports = {
      * @param {CommandInteraction} interaction
      */
     async execute(interaction) {
-        const row = new MessageActionRow.addComponents(
+        const row = new MessageActionRow().addComponents(
             new MessageSelectMenu()
                 .setCustomId("question_points_1")
                 .setPlaceholder("Tu n'as pas spécifié de partie du corps.")
