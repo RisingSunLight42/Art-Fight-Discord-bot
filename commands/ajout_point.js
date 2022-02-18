@@ -1,6 +1,10 @@
 // Importe le nécessaire pour réaliser la commande
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { CommandInteraction } = require("discord.js");
+const {
+    CommandInteraction,
+    MessageActionRow,
+    MessageSelectMenu,
+} = require("discord.js");
 
 // Crée la commande en faisant une nouvelle commande Slash
 module.exports = {
