@@ -47,7 +47,7 @@ module.exports = {
                 ])
         );
         await interaction.reply({
-            content: "Donne-moi tes points !",
+            content: "Quelle partie du corps as-tu fait ?\nQuestion 1/4",
             ephemeral: true,
             components: [row],
         });
