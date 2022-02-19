@@ -11,5 +11,9 @@ module.exports = {
                 id_user,
             },
         });
+        await user.update({
+            points: user.points + parseInt(interaction.values[0]),
+        });
+        await user.save();
     },
 };
