@@ -24,7 +24,7 @@ module.exports = {
         const row = new MessageActionRow().addComponents(
             new MessageSelectMenu()
                 .setCustomId("question_points_2")
-                .setPlaceholder("Tu n'as pas spécifié d'étapes.")
+                .setPlaceholder("Tu n'as pas spécifié d'étape.")
                 .addOptions([
                     {
                         label: "Sketch",
