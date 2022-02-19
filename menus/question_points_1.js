@@ -1,4 +1,5 @@
 const { table_user } = require("../database/database_gestion.js"); // Import de la table pour l'artfight
+const { MessageActionRow, MessageSelectMenu } = require("discord.js");
 
 module.exports = {
     name: "question_points_1",
