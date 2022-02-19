@@ -60,8 +60,8 @@ module.exports = {
                     },
                 ])
         );
-        await interaction.reply({
-            content: "Quelle partie du corps as-tu fait ?\nQuestion 1/4",
+        await interaction.update({
+            content: "À quelle étape est le dessin ?\nQuestion 2/4",
             ephemeral: true,
             components: [row],
         });
