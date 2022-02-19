@@ -18,5 +18,52 @@ module.exports = {
             points: user.points + parseInt(interaction.values[0]),
         });
         await user.save();
+
+        //* Création du second menu
+        const row = new MessageActionRow().addComponents(
+            new MessageSelectMenu()
+                .setCustomId("question_points_2")
+                .setPlaceholder("Tu n'as pas spécifié d'étapes.")
+                .addOptions([
+                    {
+                        label: "Sketch",
+                        description:
+                            "Correspond à un dessin à l'état de sketch.",
+                        value: "5",
+                    },
+                    {
+                        label: "Lineart",
+                        description:
+                            "Correspond à un dessin avec juste le lineart.",
+                        value: "15",
+                    },
+                    {
+                        label: "Flatcolor",
+                        description: "Correspond à un dessin sans ombres.",
+                        value: "25",
+                    },
+                    {
+                        label: "Simple Shade",
+                        description: "Correspond à un dessin ombré simplement.",
+                        value: "45",
+                    },
+                    {
+                        label: "Complex Shade",
+                        description:
+                            "Correspond à un dessin avec des ombres complexes.",
+                        value: "65",
+                    },
+                    {
+                        label: "Painting",
+                        description: "Correspond à un style peinture.",
+                        value: "85",
+                    },
+                ])
+        );
+        await interaction.reply({
+            content: "Quelle partie du corps as-tu fait ?\nQuestion 1/4",
+            ephemeral: true,
+            components: [row],
+        });
     },
 };
