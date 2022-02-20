@@ -20,7 +20,7 @@ module.exports = {
         });
         await user.save();
 
-        //* Création du second menu
+        //* Création du troisième menu
         const row = new MessageActionRow().addComponents(
             new MessageSelectMenu()
                 .setCustomId("question_points_3")
