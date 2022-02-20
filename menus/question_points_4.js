@@ -43,6 +43,12 @@ module.exports = {
               });
         await guild.save();
 
+        //* Remet à 0 les points de l'user
+        await user.update({
+            points: 0,
+        });
+        await user.save();
+
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
