@@ -27,19 +27,19 @@ module.exports = {
                 .setPlaceholder("Tu n'as pas spécifié de style.")
                 .addOptions([
                     {
-                        label: "",
-                        description: "",
-                        value: "",
+                        label: "Cartoon",
+                        description: 'Correspond à un style "cartoon".',
+                        value: "5",
                     },
                     {
-                        label: "",
-                        description: "",
-                        value: "",
+                        label: "Semi-réaliste",
+                        description: "Correspond à une style semi-réaliste.",
+                        value: "10",
                     },
                     {
-                        label: "",
-                        description: "",
-                        value: "",
+                        label: "Réaliste",
+                        description: "Correspond à une style réaliste.",
+                        value: "15",
                     },
                 ])
         );
