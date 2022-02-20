@@ -53,9 +53,8 @@ module.exports = {
         //* Récupère le salon de l'équipe aisni que ses points et met à jour son nom
         const infos_equipe =
             user.nom_equipe === guild.nom_equipe1
-                ? (guild.id_salon_equipe1, guild.points_equipe1)
-                : (guild.id_salon_equipe2, guild.points_equipe2);
-
+                ? [guild.id_salon_equipe1, guild.points_equipe1]
+                : [guild.id_salon_equipe2, guild.points_equipe2];
         try {
             const salon = interaction.guild.channels.fetch(infos_equipe[0]);
             await salon.setName(`${user.nom_equipe} : ${infos_equipe[1]}`);
