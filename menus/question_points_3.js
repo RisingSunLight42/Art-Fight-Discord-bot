@@ -27,19 +27,21 @@ module.exports = {
                 .setPlaceholder("Tu n'as pas spécifié de bonus.")
                 .addOptions([
                     {
-                        label: "",
-                        description: "",
-                        value: "",
+                        label: "Background",
+                        description: "Correspond à un décors d'arrière-plan.",
+                        value: "0",
                     },
                     {
-                        label: "",
-                        description: "",
-                        value: "",
+                        label: "Other Character",
+                        description:
+                            "Correspond à la présence d'un (ou de plusieurs) personnages en plus.",
+                        value: "1",
                     },
                     {
-                        label: "",
-                        description: "",
-                        value: "",
+                        label: "Aucun",
+                        description:
+                            "Signifie que vous n'avez réalisé aucun de ces bonus.",
+                        value: "2",
                     },
                 ])
         );
