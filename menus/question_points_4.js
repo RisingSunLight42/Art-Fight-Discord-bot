@@ -1,4 +1,7 @@
-const { table_user } = require("../database/database_gestion.js"); // Import de la table pour l'artfight
+const {
+    table_user,
+    table_artfight_info,
+} = require("../database/database_gestion.js"); // Import de la table pour l'artfight
 
 module.exports = {
     name: "question_points_4",
@@ -22,6 +25,13 @@ module.exports = {
             points,
         });
         await user.save();
+
+        //* Récupère l'enregistrement de guild pour l'artfight
+        const guild = await table_artfight_info.findOne({
+            where: {
+                id_guild,
+            },
+        });
 
         //* Met à jour le message
         await interaction.update({
