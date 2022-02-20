@@ -2,6 +2,7 @@ const {
     table_user,
     table_artfight_info,
 } = require("../database/database_gestion.js"); // Import de la table pour l'artfight
+const { Permissions } = require("discord.js");
 
 module.exports = {
     name: "question_points_4",
