@@ -36,10 +36,10 @@ module.exports = {
         //* Met à jour les points de l'équipe de l'user
         user.nom_equipe === guild.nom_equipe1
             ? await guild.update({
-                  points_equipe1: user.points,
+                  points_equipe1: guild.points_equipe1 + user.points,
               })
             : await guild.update({
-                  points_equipe2: user.points,
+                  points_equipe2: guild.points_equipe2 + user.points,
               });
         await guild.save();
 
@@ -50,11 +50,15 @@ module.exports = {
         await user.save();
 
         //* Récupère le salon de l'équipe et met à jour son nom
-        const id_salon =
+        const infos_equipe =
             user.nom_equipe === guild.nom_equipe1
-                ? guild.id_salon_equipe1
-                : guild.id_salon_equipe2;
+                ? (guild.id_salon_equipe1, guild.points_equipe1)
+                : (guild.id_salon_equipe2, guild.points_equipe2);
 
+        try {
+            const salon = interaction.guild.channels.fetch(infos_equipe[0]);
+            await salon.setName(`${user.nom_equipe} : ${infos_equipe[1]}`);
+        } catch (error) {}
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
