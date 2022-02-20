@@ -13,6 +13,16 @@ module.exports = {
             },
         });
 
+        //* Vérifie si l'on ajoute des points ou pas
+        const points =
+            interaction.values[0] === "0"
+                ? user.points + 10
+                : Math.round(user.points * 1.05);
+        await user.update({
+            points,
+        });
+        await user.save();
+
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
