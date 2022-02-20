@@ -19,7 +19,7 @@ module.exports = {
 
         //* Vérifie si l'on ajoute des points ou pas
         const points =
-            interaction.values[0] === "0"
+            interaction.values[0] === "0" && interaction.values[0] !== "2"
                 ? user.points + 10
                 : Math.round(user.points * 1.05);
         await user.update({
@@ -56,7 +56,9 @@ module.exports = {
                 ? [guild.id_salon_equipe1, guild.points_equipe1]
                 : [guild.id_salon_equipe2, guild.points_equipe2];
         try {
-            const salon = interaction.guild.channels.fetch(infos_equipe[0]);
+            const salon = await interaction.guild.channels.fetch(
+                infos_equipe[0]
+            );
             await salon.setName(`${user.nom_equipe} : ${infos_equipe[1]}`);
         } catch (error) {
             // Si jamais le fetch rate, le salon n'existe pas
