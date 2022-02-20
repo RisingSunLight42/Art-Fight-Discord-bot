@@ -49,7 +49,7 @@ module.exports = {
         });
         await user.save();
 
-        //* Récupère le salon de l'équipe et met à jour son nom
+        //* Récupère le salon de l'équipe aisni que ses points et met à jour son nom
         const infos_equipe =
             user.nom_equipe === guild.nom_equipe1
                 ? (guild.id_salon_equipe1, guild.points_equipe1)
@@ -58,7 +58,21 @@ module.exports = {
         try {
             const salon = interaction.guild.channels.fetch(infos_equipe[0]);
             await salon.setName(`${user.nom_equipe} : ${infos_equipe[1]}`);
-        } catch (error) {}
+        } catch (error) {
+            const nouveau_salon = await interaction.guild.channels.create(
+                `${user.nom_equipe} : ${infos_equipe[1]}`,
+                {
+                    type: "GUILD_VOICE",
+                    permissionOverwrites: [
+                        {
+                            id: interaction.guild.roles.everyone.id,
+                            deny: [Permissions.FLAGS.CONNECT],
+                        },
+                    ],
+                    reason: "Art Fight",
+                }
+            );
+        }
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
