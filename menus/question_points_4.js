@@ -49,6 +49,12 @@ module.exports = {
         });
         await user.save();
 
+        //* Récupère le salon de l'équipe et met à jour son nom
+        const id_salon =
+            user.nom_equipe === guild.nom_equipe1
+                ? guild.id_salon_equipe1
+                : guild.id_salon_equipe2;
+
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
