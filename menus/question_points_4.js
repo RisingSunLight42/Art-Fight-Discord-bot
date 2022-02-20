@@ -72,7 +72,16 @@ module.exports = {
                     reason: "Art Fight",
                 }
             );
+            user.nom_equipe === guild.nom_equipe1
+                ? await guild.update({
+                      id_salon_equipe1: nouveau_salon.id,
+                  })
+                : await guild.update({
+                      id_salon_equipe2: nouveau_salon.id,
+                  });
+            await guild.save();
         }
+
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
