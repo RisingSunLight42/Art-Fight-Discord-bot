@@ -34,7 +34,7 @@ module.exports = {
                     {
                         label: "Other Character",
                         description:
-                            "Correspond à la présence d'un (ou de plusieurs) personnages en plus.",
+                            "Correspond à la présence de personnages en plus.",
                         value: "1",
                     },
                     {
