@@ -2,7 +2,7 @@ const { table_user } = require("../database/database_gestion.js"); // Import de 
 const { MessageActionRow, MessageSelectMenu } = require("discord.js");
 
 module.exports = {
-    name: "question_points_2",
+    name: "question_points_3",
     async execute(client, interaction) {
         //* Récupération de l'enregistrement de l'utilisateur
         const id_guild = interaction.guildId;
