@@ -19,9 +19,11 @@ module.exports = {
 
         //* Vérifie si l'on ajoute des points ou pas
         const points =
-            interaction.values[0] === "0" && interaction.values[0] !== "2"
+            interaction.values[0] === "0"
                 ? user.points + 10
-                : Math.round(user.points * 1.05);
+                : interaction.values[0] === "1"
+                ? Math.round(user.points * 1.05)
+                : user.points;
         await user.update({
             points,
         });
