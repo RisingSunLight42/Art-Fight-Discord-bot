@@ -33,6 +33,16 @@ module.exports = {
             },
         });
 
+        //* Met à jour les points de l'équipe de l'user
+        user.nom_equipe === guild.nom_equipe1
+            ? await guild.update({
+                  points_equipe1: user.points,
+              })
+            : await guild.update({
+                  points_equipe2: user.points,
+              });
+        await guild.save();
+
         //* Met à jour le message
         await interaction.update({
             content: "Tes points ont bien été comptés !",
