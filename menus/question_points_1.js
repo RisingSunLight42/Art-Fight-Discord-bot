@@ -56,7 +56,7 @@ module.exports = {
                     },
                     {
                         label: "Painting",
-                        description: "Correspond à un style peinture.",
+                        description: 'Correspond à un dessin "peint".',
                         value: "85",
                     },
                 ])
