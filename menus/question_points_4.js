@@ -59,7 +59,9 @@ module.exports = {
             const salon = interaction.guild.channels.fetch(infos_equipe[0]);
             await salon.setName(`${user.nom_equipe} : ${infos_equipe[1]}`);
         } catch (error) {
+            // Si jamais le fetch rate, le salon n'existe pas
             const nouveau_salon = await interaction.guild.channels.create(
+                // On crée un nouveau salon
                 `${user.nom_equipe} : ${infos_equipe[1]}`,
                 {
                     type: "GUILD_VOICE",
@@ -72,7 +74,7 @@ module.exports = {
                     reason: "Art Fight",
                 }
             );
-            user.nom_equipe === guild.nom_equipe1
+            user.nom_equipe === guild.nom_equipe1 // On enregistre son id dans la base de données
                 ? await guild.update({
                       id_salon_equipe1: nouveau_salon.id,
                   })
