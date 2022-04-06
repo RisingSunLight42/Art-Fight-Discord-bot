@@ -22,6 +22,7 @@ const table_artfight_info = sequelize.define("artfight", {
     nom_equipe2: Sequelize.STRING,
     id_salon_equipe2: Sequelize.STRING,
     points_equipe2: Sequelize.INTEGER,
+    id_salon_annonce: Sequelize.STRING,
     date: Sequelize.DATE,
 });
 
