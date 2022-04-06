@@ -8,11 +8,11 @@ module.exports = {
     name: "ready",
     once: true,
     async execute(client) {
-        console.log(`Je suis allumée !`);
+        console.log(`🟢 Je suis allumé !`);
         deploy();
         table_artfight_info.sync();
         table_user.sync();
-        console.log("Tables des infos synchronisées !");
+        console.log("📋 Tables des infos synchronisées !");
         await client.user.setPresence({
             activities: [{ name: "Je suis en préparation !" }],
             status: "dnd",
