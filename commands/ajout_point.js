@@ -15,7 +15,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName("ajout_points")
         .setDescription(
-            "Commande pour ajouter des points à son équipe apèrs avoir répondu à divers questions."
+            "Commande pour ajouter des points à son équipe après avoir répondu à divers questions."
         ),
     /**
      *
