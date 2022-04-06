@@ -23,6 +23,14 @@ module.exports = {
                     "Nom de l'Équipe 2, veillez à ne pas donner un nom trop long !"
                 )
                 .setRequired(true)
+        )
+        .addChannelOption((option) =>
+            option
+                .setName("salon")
+                .setDescription(
+                    "Salon qui servira de lieu d'annonce pour l'équipe vainqueur !"
+                )
+                .setRequired(true)
         ),
     /**
      *
