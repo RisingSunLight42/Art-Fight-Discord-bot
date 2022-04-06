@@ -80,9 +80,9 @@ module.exports = {
             }
         );
         let date = new Date(); // Fait un objet année, puis calcule le mois suivant et l'année suivante
-        const annee = date.getFullYear();
-        const mois = date.getMonth();
-        date = new Date(annee + 1, mois + 1, 1);
+        const annee = date.getUTCFullYear() + 1;
+        const mois = date.getUTCMonth();
+        date = new Date(annee, mois, 15);
         await table_artfight_info.create({
             id_guild,
             nom_equipe1,
@@ -94,7 +94,9 @@ module.exports = {
             date,
         });
         await interaction.reply({
-            content: "L'ArtFight a bien été lancé !",
+            content: `L'ArtFight a bien été lancé ! Il se terminera le : 15/${
+                mois < 9 ? `0${mois + 1}` : mois + 1 // Les mois allant de 0 à 11, on rajoute 1, on met un 0 devant si le mois est inférieur à 9
+            }/${annee}.\n*Tous les artfights finissent l'année suivante du lancement, le quinze du mois.*`,
             ephemeral: true,
         });
     },
