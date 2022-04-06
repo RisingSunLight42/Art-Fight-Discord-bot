@@ -28,7 +28,7 @@ module.exports = {
                 .addOptions([
                     {
                         label: "Background",
-                        description: "Correspond à un décors d'arrière-plan.",
+                        description: "Correspond à un décor d'arrière-plan.",
                         value: "0",
                     },
                     {
@@ -38,10 +38,16 @@ module.exports = {
                         value: "1",
                     },
                     {
+                        label: "Background + Other Character",
+                        description:
+                            "Correspond à la présence de personnages en plus et à un décor d'arrière plan.",
+                        value: "2",
+                    },
+                    {
                         label: "Aucun",
                         description:
                             "Signifie que vous n'avez réalisé aucun de ces bonus.",
-                        value: "2",
+                        value: "3",
                     },
                 ])
         );
