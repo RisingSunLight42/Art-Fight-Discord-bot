@@ -19,10 +19,12 @@ module.exports = {
 
         //* Vérifie si l'on ajoute des points ou pas
         const points =
-            interaction.values[0] === "0"
+            interaction.values[0] === "0" // Si bonus 0, ajout de dix points
                 ? user.points + 10
-                : interaction.values[0] === "1"
+                : interaction.values[0] === "1" // Si bonus 1, ajout de 5% des points
                 ? Math.round(user.points * 1.05)
+                : interaction.values[0] === "2" // Si bonus 2, ajout de +10 points puis 5% des points totaux
+                ? Math.round((user.points + 10) * 1.05)
                 : user.points;
         await user.update({
             points,
