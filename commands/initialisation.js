@@ -99,6 +99,7 @@ module.exports = {
             nom_equipe2,
             id_salon_equipe2: salon_equipe2.id,
             points_equipe2: 0,
+            id_salon_annonce: interaction.options.getChannel("salon").id,
             date,
         });
         await interaction.reply({
