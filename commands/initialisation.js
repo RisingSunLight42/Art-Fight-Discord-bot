@@ -23,6 +23,14 @@ module.exports = {
                     "Nom de l'Équipe 2, veillez à ne pas donner un nom trop long !"
                 )
                 .setRequired(true)
+        )
+        .addChannelOption((option) =>
+            option
+                .setName("salon")
+                .setDescription(
+                    "Salon qui servira de lieu d'annonce pour l'équipe vainqueur !"
+                )
+                .setRequired(true)
         ),
     /**
      *
@@ -91,6 +99,7 @@ module.exports = {
             nom_equipe2,
             id_salon_equipe2: salon_equipe2.id,
             points_equipe2: 0,
+            id_salon_annonce: interaction.options.getChannel("salon").id,
             date,
         });
         await interaction.reply({
