@@ -5,7 +5,7 @@ const {
     table_user,
 } = require("../database/database_gestion.js"); // Import de la table pour l'artfight
 
-const check_date = async () => {
+const check_date = async (client) => {
     // Fonction qui va check la date de chaque artfight pour voir si l'un d'entre-eux est terminé
     const artfights = await table_artfight_info.findAll({
         raw: true,
@@ -19,6 +19,36 @@ const check_date = async () => {
             date_fin.getUTCMonth() === date_jour.getUTCMonth() &&
             date_fin.getUTCDate() === date_jour.getUTCDate()
         ) {
+            const id_guild = artfight.id_guild;
+            const guild = await client.guilds.fetch(id_guild);
+            await table_artfight_info.destroy({ where: { id_guild } });
+            await table_user.destroy({ where: { id_guild } });
+
+            //* Récupère les salons s'ils existent
+            let salon_equipe1 = "variable_vide";
+            let salon_equipe2 = "variable_vide";
+            try {
+                salon_equipe1 = await guild.channels.fetch(
+                    artfight.id_salon_equipe1
+                );
+            } catch (error) {
+                console.log("Un salon n'existe plus.");
+            }
+            try {
+                salon_equipe2 = await guild.channels.fetch(
+                    artfight.id_salon_equipe2
+                );
+            } catch (error) {
+                console.log("Un salon n'existe plus.");
+            }
+
+            //* Supprime les salons s'ils existent
+            if (!(salon_equipe1 === "variable_vide")) {
+                await salon_equipe1.delete("Fin de l'Artfight");
+            }
+            if (!(salon_equipe2 === "variable_vide")) {
+                await salon_equipe2.delete("Fin de l'Artfight");
+            }
         }
     }
 };
@@ -35,7 +65,7 @@ module.exports = {
             activities: [{ name: "Je suis en préparation !" }],
             status: "dnd",
         });
-        check_date();
-        setInterval(check_date, 86400);
+        check_date(client);
+        setInterval(check_date, 86400, client);
     },
 };
