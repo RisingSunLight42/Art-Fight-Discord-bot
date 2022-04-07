@@ -7,9 +7,20 @@ const {
 
 const check_date = async () => {
     // Fonction qui va check la date de chaque artfight pour voir si l'un d'entre-eux est terminé
-    const infos_guild_artfight = await table_artfight_info.findAll({
+    const artfights = await table_artfight_info.findAll({
         raw: true,
     });
+    const date_jour = new Date();
+    for (const artfight of artfights) {
+        const date_fin = new Date(artfight.date);
+        if (
+            // Vérifie si la date du jour est identique
+            date_fin.getUTCFullYear() === date_jour.getUTCFullYear() &&
+            date_fin.getUTCMonth() === date_jour.getUTCMonth() &&
+            date_fin.getUTCDate() === date_jour.getUTCDate()
+        ) {
+        }
+    }
 };
 
 module.exports = {
