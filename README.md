@@ -13,14 +13,12 @@ Actuellement, ArtFight bot possède 5 commandes :
 -   `remove_user` qui permet de retirer un utilisateur d'une équipe, exclusif aux administrateurs.
 -   `ajout_point` qui lance un questionnaire pour définir le nombre de points à ajouter.
 
-Malheureusement, il ne peut pas :
+Il est aussi capable d'annoncer la fin d'un artfight et de compter de multiples bonus.
 
--   Annoncer la fin d'un ArtFight
--   Compter plusieurs bonus différents
-
-Ce sera cependant ajouté dans une prochaine mise à jour
-
-# À voir :
+# Ce qui peut être fait :
 
 -   Faire une commande help
 -   Mettre les questions dans un embed pour que ce soit plus joli
+-   Personnaliser le temps avant la fin de l'artfight
+
+Le bot est considéré actuellement comme terminé, mais il est possible que ces idées puissent être un jour implémentées.
