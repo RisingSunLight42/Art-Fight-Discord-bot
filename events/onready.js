@@ -1,4 +1,5 @@
 const { deploy } = require("../deploy-commands.js"); // Importe la fonction pour déployer les commandes
+const { Permissions } = require("discord.js");
 const {
     sequelize,
     table_artfight_info,
@@ -49,6 +50,38 @@ const check_date = async (client) => {
             if (!(salon_equipe2 === "variable_vide")) {
                 await salon_equipe2.delete("Fin de l'Artfight");
             }
+
+            //* Récupère le salon d'annonce
+            let salon_annonce = "";
+            try {
+                salon_annonce = await guild.channels.fetch(
+                    artfight.id_salon_annonce
+                );
+            } catch (error) {
+                await guild.channels.create(`Artfight-fin`, {
+                    type: "GUILD_TEXT",
+                    permissionOverwrites: [
+                        {
+                            id: interaction.guild.roles.everyone.id,
+                            deny: [Permissions.FLAGS.SEND_MESSAGES],
+                        },
+                    ],
+                    position: 0,
+                    reason: "Annonce de la fin de l'artfight",
+                });
+            }
+
+            await salon_annonce.send(
+                `${
+                    artfight.points_equipe1 === artfight.points_equipe2
+                        ? "C'est un ex-aequo parfait ! Bravo à tous !"
+                        : `Bravo à l'équipe ${
+                              artfight.points_equipe1 > artfight.points_equipe2
+                                  ? `${artfight.nom_equipe1}`
+                                  : `${artfight.nom_equipe2}`
+                          } pour avoir gagné cet artfight !`
+                }`
+            );
         }
     }
 };
