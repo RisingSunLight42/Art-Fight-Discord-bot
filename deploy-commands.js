@@ -1,7 +1,7 @@
 const fs = require("fs");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
-const { clientId, guildId, token } = require("./config.json");
+const { clientId, token } = require("./config.json");
 
 const commands = [];
 const commandFiles = fs
@@ -16,13 +16,13 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: "9" }).setToken(token); // Récupère l'API Discord
 
-const deploy = async () => {
+const deploy = async (commands) => {
     try {
-        // Envoie les nouvelles commandes à l'API pour les utiliser
-        await rest.put(Routes.applicationGuildCommands(clientId, guildId), {
+        // Envoie les commandes (/) globales à l'API pour les utiliser
+        await rest.put(Routes.applicationCommands(clientId), {
             body: commands,
         });
-        console.log("🧪 Les commandes (/) locales ont été enregistrées.");
+        console.log("🧪 Les commandes (/) globales ont été enregistrées.");
     } catch (error) {
         console.error(error);
     }
