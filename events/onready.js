@@ -58,6 +58,7 @@ const check_date = async (client) => {
                     artfight.id_salon_annonce
                 );
             } catch (error) {
+                // Si le salon n'existe pas, le crée
                 await guild.channels.create(`Artfight-fin`, {
                     type: "GUILD_TEXT",
                     permissionOverwrites: [
