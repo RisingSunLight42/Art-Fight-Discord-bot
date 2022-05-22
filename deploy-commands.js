@@ -16,7 +16,7 @@ for (const file of commandFiles) {
 
 const rest = new REST({ version: "9" }).setToken(token); // Récupère l'API Discord
 
-const deploy = async (commands) => {
+const deploy = async () => {
     try {
         // Envoie les commandes (/) globales à l'API pour les utiliser
         await rest.put(Routes.applicationCommands(clientId), {
